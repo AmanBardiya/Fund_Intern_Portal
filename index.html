@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FundRise Portal - Login/Signup</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-box {
+      max-width: 450px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .nav-tabs .nav-link.active {
+      background-color: #28a745;
+      color: white;
+      border: none;
+    }
+    .nav-tabs .nav-link {
+      color: #28a745;
+      font-weight: 600;
+    }
+    .btn-success {
+      background-color: #28a745;
+      border: none;
+    }
+    .btn-success:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-box">
+  <ul class="nav nav-tabs nav-justified mb-4" id="formTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab">Sign Up</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="formContent">
+    <!-- Login Form -->
+    <div class="tab-pane fade show active" id="login" role="tabpanel">
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email or Username</label>
+          <input type="text" class="form-control" id="loginUsername" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Login</button>
+      </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="tab-pane fade" id="signup" role="tabpanel">
+      <form id="signupForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-control" id="signupName" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" id="signupEmail" required>
+        </div>
+        <div class="form-group">
+          <label>Create Password</label>
+          <input type="password" class="form-control" id="signupPassword" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple login/signup redirect logic
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    localStorage.setItem("username", document.getElementById("loginUsername").value);
+    window.location.href = "dashboard.html";
+  });
+
+  document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    localStorage.setItem("username", document.getElementById("signupName").value);
+    window.location.href = "dashboard.html";
+  });
+</script>
+</body>
+</html>

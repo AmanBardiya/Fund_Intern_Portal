@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Intern Portal - Dashboard</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .navbar {
+    background-color: #28a745;
+  }
+  .navbar-brand,.nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  .dashboard-header {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .card-custom {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .card-icon {
+    font-size: 40px;
+    color: #28a745;
+  }
+  .reward-card img {
+    max-height: 100px;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#">Fund Intern Portal</a>
+  <div class="ml-auto">
+    <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+    <a class="nav-link" href="index.html" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<!-- Dashboard Content -->
+<div class="container">
+  <div class="dashboard-header">
+    <h2>Welcome, <span id="internName"></span> 👋</h2>
+    <p>Your Intern Dashboard</p>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom p-3">
+        <i class="fas fa-user card-icon"></i>
+        <h5 class="mt-3">Intern Name</h5>
+        <p id="nameCard">Loading...</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom p-3">
+        <i class="fas fa-link card-icon"></i>
+        <h5 class="mt-3">Referral Code</h5>
+        <p id="referralCode">Loading...</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom p-3">
+        <i class="fas fa-rupee-sign card-icon"></i>
+        <h5 class="mt-3">Total Raised</h5>
+        <p id="fundRaised">Loading...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rewards Section -->
+  <h4 class="text-center mt-4">🎁 Rewards & Unlockables</h4>
+  <div class="row mt-3">
+    <div class="col-md-4 mb-3">
+      <div class="card reward-card p-3">
+        <img src="https://cdn-icons-png.flaticon.com/512/2950/2950706.png" class="mx-auto d-block" alt="Reward">
+        <h6 class="text-center mt-2">Raise ₹5000 - Bronze Badge</h6>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card reward-card p-3">
+        <img src="https://cdn-icons-png.flaticon.com/512/2583/2583314.png" class="mx-auto d-block" alt="Reward">
+        <h6 class="text-center mt-2">Raise ₹10000 - Silver Badge</h6>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card reward-card p-3">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" class="mx-auto d-block" alt="Reward">
+        <h6 class="text-center mt-2">Raise ₹20000 - Gold Badge</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Fetch name from localStorage
+  const username = localStorage.getItem("username");
+if(username) {
+  const displayName = username.includes("@") ? username.split("@")[0] : username;
+  document.getElementById("internName").innerText = displayName;
+  document.getElementById("nameCard").innerText = displayName;
+} else {
+  window.location.href = "index.html"; // redirect if no username
+}
+
+  // Dummy Data
+  const referralCode = "NGO" + Math.floor(Math.random() * 10000);
+  const fundRaised = "₹" + (Math.floor(Math.random() * 20000) + 1000);
+
+  document.getElementById("referralCode").innerText = referralCode;
+  document.getElementById("fundRaised").innerText = fundRaised;
+
+  function logout() {
+    localStorage.removeItem("username");
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
