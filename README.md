@@ -14,8 +14,3 @@ Interns can *Sign Up / Login, view their **Dashboard* with referral code and tot
 - 🏆 Leaderboard (Top Fundraisers)
 - 🎁 Rewards section (Bronze, Silver, Gold badges)
 - *Responsive UI with Bootstrap 4*
-
----
-
-## 🚀 Live Demo
-👉 [Click Here to Open Project](https://your-username.github.io/your-repo-name/)
